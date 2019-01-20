@@ -4,29 +4,40 @@ import devnull.mnf.model.Customer;
 import devnull.mnf.resource.api.CustomerLocal;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
+import org.dozer.DozerBeanMapper;
 
 @Singleton
 @Local(CustomerLocal.class)
 public class CustomerBean implements CustomerLocal{
 
+    @PersistenceUnit
+    private EntityManager entityManager;
+    private DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
+
     @Override
     public void create(Customer customer) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.persist(customer);
     }
 
     @Override
     public Customer retrieve(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return entityManager.find(Customer.class,id);
     }
 
     @Override
     public Customer update(Integer id, Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Customer existingCustomer = entityManager.find(Customer.class,id);
+        dozerBeanMapper.map(customer, existingCustomer);
+        entityManager.merge(existingCustomer);
+        return existingCustomer;
     }
 
     @Override
     public void delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Customer existingCustomer = entityManager.find(Customer.class,id);
+        entityManager.remove(existingCustomer);
     }
     
 }

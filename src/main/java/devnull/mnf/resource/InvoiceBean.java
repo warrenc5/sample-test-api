@@ -4,29 +4,40 @@ import devnull.mnf.model.Invoice;
 import devnull.mnf.resource.api.InvoiceLocal;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceUnit;
+import org.dozer.DozerBeanMapper;
 
 @Singleton
 @Local(InvoiceLocal.class)
 public class InvoiceBean implements InvoiceLocal{
 
+    @PersistenceUnit
+    private EntityManager entityManager;
+    private DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
+
     @Override
     public void create(Invoice invoice) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        entityManager.persist(invoice);
     }
 
     @Override
     public Invoice retrieve(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return entityManager.find(Invoice.class,id);
     }
 
     @Override
     public Invoice update(Integer id, Invoice invoice) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        Invoice existingInvoice = entityManager.find(Invoice.class,id);
+        dozerBeanMapper.map(invoice, existingInvoice);
+        entityManager.merge(existingInvoice);
+        return existingInvoice;
+}
 
     @Override
     public void delete(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Invoice existingInvoice = entityManager.find(Invoice.class,id);
+        entityManager.remove(existingInvoice);
     }
     
 }

@@ -7,6 +7,7 @@ import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 
 @Local
 @Path("auth")
@@ -15,7 +16,7 @@ public interface AuthLocal {
     @POST
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
-    public void login(@NotNull @FormParam("username") String username, @NotNull @FormParam("password") String password) throws Exception;
+    public Response login(@NotNull @FormParam("username") String username, @NotNull @FormParam("password") String password) throws Exception;
 
     public void logout() throws Exception;
 }
