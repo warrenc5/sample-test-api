@@ -2,7 +2,6 @@ package devnull.mnf.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -25,9 +24,10 @@ public class Account implements Serializable {
     @Id
     String name;
     String description;
-    @OneToMany(targetEntity = Customer.class, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Customer.class, mappedBy = "account", cascade = {}, fetch = FetchType.EAGER)
     Collection<Customer> customers;
 
     @Transient
-    Double accountTotal;
+    @Builder.Default
+    Double accountTotal = 0. ;
 }

@@ -6,10 +6,10 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.Transient;
@@ -30,16 +30,18 @@ public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     Integer id;
-    
+
     String name;
     @Temporal(javax.persistence.TemporalType.DATE)
     Date created;
 
-    @OneToMany(targetEntity = Invoice.class, cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @OneToMany(targetEntity = Invoice.class, mappedBy = "customer", cascade = {}, fetch = FetchType.EAGER)
     Collection<Invoice> invoices;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE}, optional = false)
     Account account;
 
     @Transient
-    Double customerTotal;
+    @Builder.Default
+    Double customerTotal = .0;
 }
