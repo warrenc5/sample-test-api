@@ -28,4 +28,6 @@ public class Invoice implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date purchased;
     Double currency;
+
+    Integer customerId;
 }

@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -36,6 +37,8 @@ public class Customer implements Serializable {
 
     @OneToMany(targetEntity = Invoice.class, cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     Collection<Invoice> invoices;
+
+    Account account;
 
     @Transient
     Double customerTotal;

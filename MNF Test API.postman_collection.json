@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "ecceb773-b558-4260-a45a-559d3b4de1b4",
+		"name": "MNF Test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "wozza",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Auth Logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/auth/logout"
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/invoice/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/customer/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/customer/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"account\":{\"name\":\"acc1\"}}"
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/customer"
+			},
+			"response": []
+		},
+		{
+			"name": "Customer",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"account\":{\"name\":\"acc1\"}}"
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/customer/1"
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/accounts"
+			},
+			"response": []
+		},
+		{
+			"name": "Accounts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"acc1\"}"
+				},
+				"url": "http://localhost:8080/mnf-api-test/api/accounts"
+			},
+			"response": []
+		}
+	]
+}
