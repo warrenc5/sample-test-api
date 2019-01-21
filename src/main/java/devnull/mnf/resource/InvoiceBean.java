@@ -5,14 +5,14 @@ import devnull.mnf.resource.api.InvoiceLocal;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 import org.dozer.DozerBeanMapper;
 
 @Singleton
 @Local(InvoiceLocal.class)
 public class InvoiceBean implements InvoiceLocal{
 
-    @PersistenceUnit
+    @PersistenceContext
     private EntityManager entityManager;
     private DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
 

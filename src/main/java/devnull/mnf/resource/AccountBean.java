@@ -7,13 +7,13 @@ import java.util.List;
 import javax.ejb.Local;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceUnit;
+import javax.persistence.PersistenceContext;
 
 @Singleton
 @Local(AccountLocal.class)
 public class AccountBean implements AccountLocal {
 
-    @PersistenceUnit
+    @PersistenceContext
     private EntityManager entityManager;
 
     @Override

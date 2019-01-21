@@ -6,6 +6,7 @@ package devnull.mnf.resource.api;
 import devnull.mnf.model.Customer;
 import javax.ejb.Local;
 import javax.validation.constraints.NotNull;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -22,14 +23,18 @@ public interface CustomerLocal {
     @POST
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     void create(@NotNull Customer customer) throws Exception;
 
     @GET
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
     Customer retrieve(@NotNull @PathParam("id") Integer id);
 
     @PUT
     @Path("/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
     Customer update(@NotNull @PathParam("id") Integer id, @NotNull Customer customer);
 
     @DELETE

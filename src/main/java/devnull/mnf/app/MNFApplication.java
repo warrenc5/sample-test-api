@@ -19,7 +19,7 @@ import devnull.mnf.resource.api.AccountLocal;
 public class MNFApplication extends Application {
 
     @Inject
-    AccountLocal service;
+    AccountLocal account;
 
     @Inject
     CustomerLocal customer;
@@ -35,7 +35,7 @@ public class MNFApplication extends Application {
 
     @Override
     public Set<Object> getSingletons() {
-        return new HashSet<>(Arrays.asList(service,customer,invoice,auth));
+        return new HashSet<>(Arrays.asList(account,customer,invoice,auth));
     }
 
     @Override
