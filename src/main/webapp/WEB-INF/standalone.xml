@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<subsystem xmlns="urn:jboss:domain:datasources:4.0">
+    <datasources>
+        <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true">
+            <connection-url>jdbc:h2:file:${jboss.server.data.dir}/mnf.h2;TRACE_LEVEL_FILE=3;TRACE_LEVEL_SYSTEM_OUT=3;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+            <driver>h2</driver>
+        </datasource>
+    </datasources>
+</subsystem>

@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Date;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +34,7 @@ public class Customer implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     Date created;
 
-    @OneToMany(targetEntity = Invoice.class, cascade = CascadeType.MERGE)
+    @OneToMany(targetEntity = Invoice.class, cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     Collection<Invoice> invoices;
 
     @Transient
