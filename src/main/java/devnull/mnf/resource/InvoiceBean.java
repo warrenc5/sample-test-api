@@ -17,8 +17,9 @@ public class InvoiceBean implements InvoiceLocal{
     private DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
 
     @Override
-    public void create(Invoice invoice) throws Exception {
+    public Invoice create(Invoice invoice) throws Exception {
         entityManager.persist(invoice);
+        return invoice;
     }
 
     @Override

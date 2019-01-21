@@ -24,7 +24,7 @@ public interface CustomerLocal {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    void create(@NotNull Customer customer) throws Exception;
+    Customer create(@NotNull Customer customer) throws Exception;
 
     @GET
     @Path("/{id}")

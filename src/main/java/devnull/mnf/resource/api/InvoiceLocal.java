@@ -24,7 +24,7 @@ public interface InvoiceLocal {
     @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    void create(@NotNull Invoice invoice) throws Exception;
+    Invoice create(@NotNull Invoice invoice) throws Exception;
 
     @GET
     @Path("/{id}")

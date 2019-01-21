@@ -25,13 +25,20 @@ public class AccountBean implements AccountLocal {
         resultList.stream().forEach(account -> {
             account.getCustomers().stream().forEach(customer -> {
                 customer.getInvoices().stream().forEach(invoice -> {
-                    customer.setCustomerTotal(customer.getCustomerTotal() + invoice.getCurrency());
+                    customer.setCustomerTotal(customer.getCustomerTotal() + invoice.getPrice());
+                    invoice.setCustomer(null);
                 });
+                customer.setAccount(null);
                 account.setAccountTotal(account.getAccountTotal() + customer.getCustomerTotal());
             });
 
         });
         return resultList;
+    }
+
+    @Override
+    public void retrieveAll(Account account) throws Exception {
+        entityManager.persist(account);
     }
 
 }

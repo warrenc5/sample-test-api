@@ -17,8 +17,9 @@ public class CustomerBean implements CustomerLocal{
     private DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
 
     @Override
-    public void create(Customer customer) throws Exception {
+    public Customer create(Customer customer) throws Exception {
         entityManager.persist(customer);
+        return customer;
     }
 
     @Override
