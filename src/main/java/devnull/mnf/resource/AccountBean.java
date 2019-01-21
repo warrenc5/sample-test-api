@@ -23,9 +23,12 @@ public class AccountBean implements AccountLocal {
 
     private Collection<Account> calculateSummaries(List<Account> resultList) {
         resultList.stream().forEach(account -> {
+            entityManager.detach(account);
             account.getCustomers().stream().forEach(customer -> {
+                entityManager.detach(customer);
                 customer.getInvoices().stream().forEach(invoice -> {
                     customer.setCustomerTotal(customer.getCustomerTotal() + invoice.getPrice());
+                    entityManager.detach(invoice);
                     invoice.setCustomer(null);
                 });
                 customer.setAccount(null);

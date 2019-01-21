@@ -2,6 +2,10 @@
 
 This is my Java Microservice API.
 
+Build it with 
+
+mvn -DskipTests install 
+
 It runs on port 8080 and you can start it by
 
 > java -jar target/mvf-test-api-1.0-SNAPSHOT-swarm.jar
@@ -12,14 +16,12 @@ You can generate the docker image, it wont run by default.
 
 or
 
-> docker load -i mnf-test-api.tar
-
 > docker run -i --network host mnf-test-api
 
 
 There are postman/newman collection in the root directory.
 
-> newman run MNF.postman_collection.json
+> newman run MNF Test API.postman_collection.json
 
 
 # Assumptions

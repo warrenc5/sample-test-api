@@ -1,8 +1,8 @@
 {
 	"info": {
-		"_postman_id": "ecceb773-b558-4260-a45a-559d3b4de1b4",
+		"_postman_id": "6ed62c37-96e1-49fc-bd1f-02a1a5c457d7",
 		"name": "MNF Test API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -32,7 +32,20 @@
 						}
 					]
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/auth/login"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"auth",
+						"login"
+					]
+				}
 			},
 			"response": []
 		},
@@ -45,7 +58,20 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/auth/logout"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/auth/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"auth",
+						"logout"
+					]
+				}
 			},
 			"response": []
 		},
@@ -58,7 +84,50 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/invoice/1"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/invoice/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"invoice",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Invoice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\" :  \"invoice2\", \"customer\":{\"id\":1}, \"purchased\":\"2019-01-21\",\"price\":1.1}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/invoice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"invoice"
+					]
+				}
 			},
 			"response": []
 		},
@@ -71,7 +140,20 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/customer/1"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/customer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"customer",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -84,7 +166,20 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/customer/1"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/customer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"customer",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -95,15 +190,26 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\"account\":{\"name\":\"acc1\"}}"
+					"raw": "{\"created\":\"2019-01-21\",\"account\":{\"name\":\"acc1\"}}"
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/customer"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"customer"
+					]
+				}
 			},
 			"response": []
 		},
@@ -122,7 +228,20 @@
 					"mode": "raw",
 					"raw": "{\"account\":{\"name\":\"acc1\"}}"
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/customer/1"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/customer/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"customer",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -135,7 +254,19 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/accounts"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"accounts"
+					]
+				}
 			},
 			"response": []
 		},
@@ -154,7 +285,19 @@
 					"mode": "raw",
 					"raw": "{\"name\":\"acc1\"}"
 				},
-				"url": "http://localhost:8080/mnf-api-test/api/accounts"
+				"url": {
+					"raw": "http://localhost:8080/mnf-api-test/api/accounts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"mnf-api-test",
+						"api",
+						"accounts"
+					]
+				}
 			},
 			"response": []
 		}
