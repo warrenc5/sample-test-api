@@ -1,5 +1,7 @@
 package devnull.mnf.app;
 
+import devnull.mnf.resource.DefaultExceptionMapper;
+import devnull.mnf.resource.api.AccountLocal;
 import devnull.mnf.resource.api.AuthLocal;
 import devnull.mnf.resource.api.CustomerLocal;
 import devnull.mnf.resource.api.InvoiceLocal;
@@ -12,7 +14,6 @@ import javax.servlet.ServletContext;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 import javax.ws.rs.core.Context;
-import devnull.mnf.resource.api.AccountLocal;
 
 @ApplicationPath("api")
 @Stateless
@@ -40,7 +41,7 @@ public class MNFApplication extends Application {
 
     @Override
     public Set<Class<?>> getClasses() {
-        return new HashSet<>();
+        return new HashSet<>(Arrays.asList(DefaultExceptionMapper.class));
     }
 
 }
